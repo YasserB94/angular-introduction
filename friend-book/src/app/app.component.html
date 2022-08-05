@@ -9,10 +9,9 @@
   <input type="text" name="phone-number" id="" />
   <label for="fav-coding-lang"></label>
   <select name="fav-coding-lang" id="">
-    <option value="html">html</option>
-    <option value="css">css</option>
-    <option value="markdown">markdown</option>
-    <option value="SQL">sql</option>
+    <option *ngFor="let lang of codingLanguages.sort()">
+      {{ lang }}
+    </option>
   </select>
 </form>
 

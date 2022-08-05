@@ -1,12 +1,13 @@
-<form>
+{{ formName.value | json }}
+<form #formName="ngForm">
   <label for="first-name">First name: </label>
-  <input type="text" name="first-name" id="" />
+  <input #inputName="ngModel" type="text" name="first-name" id="" ngModel />
   <label for="last-name">Last name:</label>
-  <input type="text" name="last-name" id="" />
+  <input #inputName="ngModel" type="text" name="last-name" id="" ngModel />
   <label for="email">Email:</label>
-  <input type="text" name="email" id="" />
+  <input #inputName="ngModel" type="text" name="email" id="" ngModel />
   <label for="phone-number">Phone number:</label>
-  <input type="text" name="phone-number" id="" />
+  <input #inputName="ngModel" type="text" name="phone-number" id="" ngModel />
   <label for="fav-coding-lang"></label>
   <select name="fav-coding-lang" id="">
     <option *ngFor="let lang of codingLanguages.sort()">

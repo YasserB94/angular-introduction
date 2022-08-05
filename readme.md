@@ -1,5 +1,6 @@
 # Angular
 
+---This Readme is a WIP and without contribution it will not be finished. Or I will never learn Angular. Tough I do hope it is of some use, And I am very happy to work with you towards a complete guide for newbies like myself---
 This readme contains my own progress towards developping a webApp with Angular.
 My journey was instigated by a BeCode exercise: Basic-Angular-Form.
 More on this exercise will be in the exercise-readme.md since I would like to keep this readme to summarise what I learn about angular.
@@ -236,10 +237,71 @@ These are implemented like interfaces - Example: `export class MyComponent imple
 This is just an important rule, you can do anythingn with a little javascript manipulating the DOM, don't.
 Or do, but expect a deep rabbit hole of bugs.
 
-## Must haves!
+## Must haves! - WIP
 
 - [Angular Augury](https://augury.rangle.io);
   - THE browser extension to debug and profile Angular webApps.
 - IDE Extensions - vsCode
   - [it's vscode! here's a pack of all the extensions you want for Angular](https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials)
     - This pack is created by [John Papa](https://www.johnpapa.net) who seems to be considered as a web development guru.
+
+---
+
+## Folder Structure - WIP
+
+Once more, just diving into this will inevitabely turn this whole project into a mess of code, with perhaps a nice guiding readme, but still. code and projects should be as self explanitory as possible. This can only be done using structure. (as far as I know), so. let's look up some best practices about this.
+
+- What are these files Angular gave me ?
+  - [There's nice docs!](https://angular.io/guide/file-structure)
+- Endless reading
+  - So, I found [this](https://www.tektutorialshub.com/angular/angular-folder-structure-best-practices/#comments) nice looking guide on creating structure,....
+  - But it requires me to know about [Angular Modules](https://www.tektutorialshub.com/angular/angular-modules/)
+  - Which to understand needs knowledge about more and more and more things....
+- Time to skip a lot of reading, get out of tutorial hell, summarise,implement,
+  - Aaand probably break a lot of stuff....
+    - It'll be worth it!
+
+### Angular Modules - WIP
+
+Angular will not make distinction between modules, exactly what I want. Structure in my development area. tough unity in the production environment.
+Tough according to the article modules can be split up into four main categories
+
+- Root Module
+  - The root of our project, what is loaded whenever its starts
+  - This module is responsible for loading all the other modules
+  - Is usually called AppModule and created in /src/app
+- Features Module
+  - A module that implements specific features in the application
+  - All components,pipes and directives related to the feature will reside here.
+  - Must be in a folder with the Module's name in /src/app/nameOfModule
+- Shared Module
+  - Some components,directives and pipes may be used across modules. this module will hold those pieces of code.
+  - Services are not part of this module! Shared will be imported everywhere, and loading services where we don't use them may result in conflicts
+  - This module should have NO DEPENDENCIES from other modules.
+  - This module does for example
+    - Import angular modules to then share to other modules
+    - Import third party modules to share to other modules
+- Core Module
+  - Services shared across the application will reside here
+    - Seperate module so that ensuring every service stays a singleton becomes easier
+  - Services do for example:
+    - Authentication services
+    - Fetching data
+  - This module must only be imported into the root module.
+    - We can prevent other modules importing it with following code
+
+```ts
+@NgModule({})
+export class CoreModule {
+  constructor(@Optional() @SkipSelf() core: CoreModule) {
+    if (core) {
+      throw new Error(
+        "You just wrote a book silly! don't import the core module outside of the root module!"
+      );
+    }
+  }
+}
+```
+
+- Thankfully within this module we can make dedicated folders for every service
+  Unfortunately the article I am reading is pretty extensive and does not keep it's beginner friendly tone. so this is where I end this chapter for now. While I try to implement some structure in my project

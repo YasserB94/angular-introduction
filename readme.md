@@ -1,6 +1,6 @@
 # Angular
 
----This Readme is a WIP and without contribution it will not be finished. Or I will never learn Angular. Tough I do hope it is of some use, And I am very happy to work with you towards a complete guide for newbies like myself---
+---This Readme is a WIP and without contribution it will not be finished.Tough I do hope it is of some use, And I am very happy to work with you towards a complete guide for newbies like myself---
 This readme contains my own progress towards developping a webApp with Angular.
 My journey was instigated by a BeCode exercise: Basic-Angular-Form.
 More on this exercise will be in the exercise-readme.md since I would like to keep this readme to summarise what I learn about angular.
